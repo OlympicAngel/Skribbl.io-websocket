@@ -1,0 +1,15 @@
+{
+  "name": "שליטת צאט במשחק",
+  "version": "1.0.0",
+  "description": "שליטת צאט דיסקורד במשחק בזמן אמת",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "OlympicAngel",
+  "license": "ISC",
+  "dependencies": {
+    "nexe": "^3.3.7",
+    "websocket": "^1.0.33"
+  }
+}

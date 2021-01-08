@@ -1,0 +1,131 @@
+<head>
+<script>
+const port = "{1}";
+const elemntTimout = 4000;
+
+var socket = new WebSocket('ws://localhost:' + port,"obs");
+
+function startWebsocket() {
+  socket = new WebSocket('ws://localhost:' + port,"obs")
+
+    // Listen for messages
+    socket.addEventListener('message', function (event) {
+        console.log(event.data)
+        if(event.data == 1)
+        {
+            document.body.firstElementChild.style.opacity  = 0
+        }
+        else
+        {
+            document.body.firstElementChild.style.opacity  = 1
+        }
+    });
+
+
+  socket.onclose = function(){
+    socket = null
+    setTimeout(startWebsocket, 5000)
+  }
+}
+
+startWebsocket();
+
+function sendSettings(fromLocal)
+{
+    if(!socketable)
+    {
+        alert("שגיאה בחיבור לסקריפט")
+    }
+
+    var settingsJSON = {};
+    if(fromLocal && localStorage.secLoad)
+    {
+        //load from local to elemnts & constuct json
+    }
+    else
+    {
+        localStorage.secLoad = true;
+        //constuct json & save to local host
+    }
+
+    socket.send(JSON.stringify(settingsJSON));
+}
+</script>
+
+<meta charset="UTF-8">
+</head>
+<body>
+    
+
+<div>
+<h1>כרגע התור שלי :)</h1>
+</div>
+
+<style>
+div{
+    background-color: #ff1800;
+    box-shadow: inset 0 0 17vmin 2vmin #000, 0 3vmin 2vmin -2vmin, 0 0 2vmin -0.5vmin;
+    text-align: center;
+    direction: rtl;
+    font-size: 5vmin;
+    opacity: 0;
+    border-radius: 6vmin;
+    transform: scale(0.94);
+}
+h1{
+    color: #fff;
+    font-family: heebo black;
+    text-shadow: 0 0.4vmin 0.2vmin #000000, 0 0.66vmin 0.2vmin hsl(0 100% 13% / 1), 0 1vmin hsl(0 100% 16% / 1), 0 0.5vmin 3vmin #000, 0 0.5vmin 1vmin #000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50% - 15vmin);
+    -webkit-text-stroke: 0.25vmin #000;
+}
+
+h1:before {
+    content: "תעשו לייק בנתיים צאט♥";
+    display: block;
+    transform: scale(0.3);
+    font-style: italic;
+    font-weight: 500;
+    font-family: heebo;
+    letter-spacing: 1.2vmin;
+    line-height: 490%;
+    font-size: 7vmin;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+h1:after {
+    content: "#אנטי-סטרים-סנייפ";
+    display: block;
+    transform: scale(0.3);
+    font-style: italic;
+    font-weight: 500;
+    font-family: heebo;
+    letter-spacing: 1.2vmin;
+    line-height: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+div,body, html{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+</style>
+<script>
+    document.body.onclick = function()
+{
+    document.body.firstElementChild.style.opacity  = 1
+    setTimeout(()=>{
+        document.body.firstElementChild.style.opacity  = 0;
+    },4000);
+}
+</script>
+</body>
