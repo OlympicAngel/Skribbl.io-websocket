@@ -1,7 +1,7 @@
 {
-  "name": "שליטת צאט במשחק",
+  "name": "Skribbl.io websocket",
   "version": "1.0.0",
-  "description": "שליטת צאט דיסקורד במשחק בזמן אמת",
+  "description": "allows you to hide your live screen if its your turn is skribbl.io",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
