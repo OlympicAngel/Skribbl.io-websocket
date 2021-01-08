@@ -4,9 +4,10 @@
 ## how to use:
 * simply run the exe or run via command:
 ```node.exe index.js```
-* Then you will need a browser extansion that will allow you to inject js to skribbl.io
-that code will detect when it your turn and sends that using websocket to the localhost server.
-I will recommand "Tampermonkey" extasion,, install it and add new userscript:
+* Then you will need a browser extansion that will allow you to inject JS to skribbl.io
+that code will detect when its your turn and it will send that data using websocket to the localhost server.
+I will recommand ["Tampermonkey"](https://www.tampermonkey.net/) extansion, install it and add new userscript:
+_(click the extansion icon > "create a new script...")_
 ```javascript
 // ==UserScript==
 // @name         skribble hider
@@ -50,11 +51,13 @@ I will recommand "Tampermonkey" extasion,, install it and add new userscript:
     }
 })();
 ```
-Great! now all you need to do is to setup your OBS sence:
-* Add new Browser Obj, in the url set it to:```http://localhost:6942/```,
+**SAVE IT**
+* Great! now all you need to do is to setup your OBS sence:
+Add new Browser Obj, in the url set it to:```http://localhost:6942/```,
 I recommand in using ```Width:1600``` & ```Height:1300```,
 and position it so it covers the painting area from the scribble website within obs layout.
 
 ### And... you good to go!
+_You might need to rolad the skribbl.io site and/or obs browser tf it doesnt works fot you at start._
 
 Feel free to add staff and/or fix dection script if skribbl changes its behavior..
